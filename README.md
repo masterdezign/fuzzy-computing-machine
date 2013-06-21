@@ -1,0 +1,3 @@
+# Installation
+
+     $ thor dotfiles:install
