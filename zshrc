@@ -58,3 +58,6 @@ rvm 1.9.2
 
 # To fix tmux 256 color problem
 alias tmux="TERM=screen-256color-bce tmux"
+
+
+export EDITOR=`which vim`
