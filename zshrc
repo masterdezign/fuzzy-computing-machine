@@ -59,5 +59,8 @@ rvm 1.9.2
 # To fix tmux 256 color problem
 alias tmux="TERM=screen-256color-bce tmux"
 
-
 export EDITOR=`which vim`
+
+# Run fasd https://github.com/clvv/fasd
+# eval "$(fasd --init auto)"
+eval "$(fasd --init posix-alias zsh-hook)"
