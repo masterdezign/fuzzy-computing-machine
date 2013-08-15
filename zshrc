@@ -1,9 +1,4 @@
-function chpwd() {
-    emulate -L zsh
-    ls
-} 
-
-#Path to your oh-my-zsh configuration.
+# Path to your oh-my-zsh configuration.
 ZSH=$HOME/.oh-my-zsh
 
 # Set name of the theme to load.
@@ -20,7 +15,7 @@ ZSH_THEME="robbyrussell"
 # CASE_SENSITIVE="true"
 
 # Comment this out to disable weekly auto-update checks
-DISABLE_AUTO_UPDATE="true"
+# DISABLE_AUTO_UPDATE="true"
 
 # Uncomment following line if you want to disable colors in ls
 # DISABLE_LS_COLORS="true"
@@ -34,33 +29,50 @@ DISABLE_AUTO_UPDATE="true"
 # Which plugins would you like to load? (plugins can be found in ~/.oh-my-zsh/plugins/*)
 # Custom plugins may be added to ~/.oh-my-zsh/custom/plugins/
 # Example format: plugins=(rails git textmate ruby lighthouse)
-plugins=(git mercurial debian python rails3 ruby rvm extract)
+plugins=(git mercurial extract rvm)
 
 source $ZSH/oh-my-zsh.sh
 
 # Customize to your needs...
-export PATH="$HOME/bin":/usr/lib/lightdm/lightdm:/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin:/usr/games
+#export http_proxy=proxy-web.univ-fcomte.fr:3128
+export ROOTSYS=/usr/local/root
+export PATH=$PATH:~/bin
 
-# for rvm integration
-#unsetopt auto_name_dirs
+PATH=$PATH:$HOME/.rvm/bin # Add RVM to PATH for scripting
+#source /Users/master/.rvm/scripts/rvm
 
+PATH=$PATH:$HOME/.cabal/bin 
 
-[[ -s "$HOME/.rvm/scripts/rvm" ]] && source "$HOME/.rvm/scripts/rvm" # Load RVM into a shell session *as a function*
+# advice from brew doctor
+PATH=/usr/local/bin:$PATH
+# Mac ports
+PATH=$PATH:/opt/local/bin
 
+### Added by the Heroku Toolbelt
+export PATH="/usr/local/heroku/bin:$PATH"
+export EDITOR=/usr/bin/vim
 
+# Encoding fix for ruby
+# Linux
+# export LANG=en_US.UTF-8
+# OS X
+export LC_CTYPE=en_US.UTF-8
 
+# export http_proxy=http://proxy-web.univ-fcomte.fr:3128
+# export ALL_PROXY=$http_proxy
 
-export FOTOBOOK_ROOT=~/fb
-export PYTHONPATH=$PYTHONPATH:"$HOME/fb/":"$HOME/fb/fotobook-builder/":"$HOME/fb/fotobook-core"
+export PGDATA="/Users/master/Library/Application Support/Postgres/var"
 
-rvm 1.9.2
+export PATH="/opt/local/bin:$PATH"
 
+# export TEXINPUTS="~/src/beamer/base/"
+# export TEXINPUTS="~/src/urkhyph/"
+#
 
-# To fix tmux 256 color problem
-alias tmux="TERM=screen-256color-bce tmux"
+# Use ESC for vi mode
+# set -o vi
+export PATH="/Applications/Postgres.app/Contents/MacOS/bin:$PATH"
 
-export EDITOR=`which vim`
-
-# Run fasd https://github.com/clvv/fasd
-# eval "$(fasd --init auto)"
-eval "$(fasd --init posix-alias zsh-hook)"
+# fasd
+eval "$(fasd --init auto)"
+alias v='f -e vim' # quick opening files with vim
