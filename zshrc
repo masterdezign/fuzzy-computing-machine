@@ -76,3 +76,7 @@ export PATH="/Applications/Postgres.app/Contents/MacOS/bin:$PATH"
 # fasd
 eval "$(fasd --init auto)"
 alias v='f -e vim' # quick opening files with vim
+alias o='a -e open' # quick opening files and directories with open
+alias m='a -e mplayer'
+alias p='f -e xppaut'
+alias tmux="TERM=screen-256color-bce tmux"
